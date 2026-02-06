@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useApp } from '../AppContext';
 import { TRANSLATIONS, DELIVERY_FEE, DELIVERY_THRESHOLD, ASSETS } from '../constants';
