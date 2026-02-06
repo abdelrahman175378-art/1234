@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased text-black bg-white overflow-x-hidden font-sans;
+  }
+}
+
+/* عشان تأثير المسح الضوئي في الـ Face ID */
+@keyframes scan {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(100%); }
+}
+.animate-scan {
+  animation: scan 3s linear infinite;
+}
