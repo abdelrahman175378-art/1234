@@ -1,7 +1,7 @@
 {
-  "name": "ak-modern-fashion-|-doha-elite-boutique",
+  "name": "ak-modern-fashion-doha-elite-boutique",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,18 +9,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "lucide-react": "0.463.0",
-    "@google/genai": "^1.38.0",
-    "xlsx": "0.18.5",
-    "jspdf": "2.5.1",
-    "jspdf-autotable": "3.5.25"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.463.0",
+    "@google/generative-ai": "^0.21.0",
+    "xlsx": "^0.18.5",
+    "jspdf": "^2.5.1",
+    "jspdf-autotable": "^3.5.25"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
-    "@vitejs/plugin-react": "^5.0.0",
-    "typescript": "~5.8.2",
-    "vite": "^6.2.0"
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.0"
   }
 }
