@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useApp } from '../AppContext';
 import { TRANSLATIONS, CONTACT_WHATSAPP, ASSETS, COLOR_MAP, SIZE_LABELS } from '../constants';
