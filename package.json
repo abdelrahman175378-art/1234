@@ -13,9 +13,9 @@
     "react-dom": "^18.3.1",
     "lucide-react": "^0.463.0",
     "@google/generative-ai": "^0.21.0",
-    "xlsx": "^0.18.5",
-    "jspdf": "^2.5.1",
-    "jspdf-autotable": "^3.5.25"
+    "xlsx": "0.18.5",
+    "jspdf": "2.5.1",
+    "jspdf-autotable": "3.5.25"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
