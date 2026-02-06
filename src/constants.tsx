@@ -1,4 +1,3 @@
-
 import { Translation } from './types';
 
 // Exhaustive COLOR_MAP with all essential and luxury fashion shades
