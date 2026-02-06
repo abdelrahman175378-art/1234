@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useApp } from '../AppContext';
 import { TRANSLATIONS } from '../constants';
