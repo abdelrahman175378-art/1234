@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #0d0d0d;
+  color: #fff;
+}
+
+header {
+  padding: 20px;
+  text-align: center;
+  background: black;
+  border-bottom: 1px solid #222;
+}
+
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.hero button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  background: gold;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.chatbox {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #111;
+  border-radius: 12px;
+  display: none;
+  flex-direction: column;
+}
+
+.messages {
+  padding: 15px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+.input-box {
+  display: flex;
+  border-top: 1px solid #222;
+}
+
+.input-box input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: #000;
+  color: #fff;
+}
+
+.input-box button {
+  padding: 12px 20px;
+  background: gold;
+  border: none;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  color: #aaa;
+}
