@@ -1,9 +1,8 @@
-
 import React, { useState, useMemo, useEffect } from 'react';
 import { useApp } from '../AppContext.tsx';
 import { Product, Order } from '../types.ts';
 import { ASSETS, TRANSLATIONS, COLOR_MAP, SIZE_LABELS, MENS_SUB_CATEGORIES, WOMENS_SUB_CATEGORIES } from '../constants.tsx';
-import { Plus, Trash2, Edit3, X, Lock, ShieldCheck, ArrowLeft, FileSpreadsheet, FileText, Download, Users, CheckSquare, Square, Save, Trash, CalendarDays, Percent, Palette, Ruler, Tag, Link, ShieldAlert, Binary, Fingerprint, Activity, ShieldEllipsis, Scan, Globe, ExternalLink, Check } from 'lucide-react';
+import { Plus, Trash2, Edit3, X, Lock, ShieldCheck, ArrowLeft, FileSpreadsheet, FileText, Users, CalendarDays, Percent, Check, ExternalLink, Binary, Fingerprint, Activity, ShieldEllipsis, ShieldAlert } from 'lucide-react';
 import * as XLSX from 'xlsx';
 import { jsPDF } from 'jspdf';
 import autoTable from 'jspdf-autotable';
@@ -101,7 +100,7 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
 
   const toggleColor = (colorName: string) => {
     const current = newProduct.colors || [];
-    if (current.includes(name)) {
+    if (current.includes(colorName)) {
       setNewProduct({ ...newProduct, colors: current.filter(c => c !== colorName) });
     } else {
       setNewProduct({ ...newProduct, colors: [...current, colorName] });
@@ -154,41 +153,12 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
       Method: log.method,
       Date: log.date,
       Time: log.time,
-      Biometrics: log.biometricsEnabled ? 'YES' : 'NO',
-      FacePhotoData: log.facePhoto || 'N/A'
+      Biometrics: log.biometricsEnabled ? 'YES' : 'NO'
     }));
     const ws = XLSX.utils.json_to_sheet(data);
     const wb = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(wb, ws, "Customer Database");
     XLSX.writeFile(wb, `AK_Customer_Audit_${new Date().toISOString().split('T')[0]}.xlsx`);
-  };
-
-  const exportCustomersToPDF = () => {
-    const doc = new jsPDF();
-    doc.text("AK Modern Fashion - Customer Audit Ledger", 14, 15);
-    const tableData = accessLogs.map(log => [
-      log.date + ' ' + log.time,
-      log.name,
-      log.email || log.phone,
-      log.method,
-      log.biometricsEnabled ? 'Enabled' : 'Disabled',
-      log.facePhoto ? 'IMAGE_DATA' : 'NO_IMAGE'
-    ]);
-    autoTable(doc, {
-      head: [['Timestamp', 'Identity', 'Credential', 'Method', 'Biometrics', 'Face ID']],
-      body: tableData,
-      startY: 20,
-      didDrawCell: (data) => {
-        if (data.section === 'body' && data.column.index === 5) {
-          const log = accessLogs[data.row.index];
-          if (log.facePhoto && log.facePhoto.startsWith('data:image')) {
-            doc.addImage(log.facePhoto, 'JPEG', data.cell.x + 2, data.cell.y + 2, 10, 10);
-          }
-        }
-      },
-      styles: { minCellHeight: 15 }
-    });
-    doc.save(`AK_Customer_Audit_${Date.now()}.pdf`);
   };
 
   const securityPillars = [
@@ -316,7 +286,6 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
                   </div>
                   <div className="flex gap-4">
                     <button onClick={exportCustomersToExcel} className="flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-green-700 transition-all shadow-lg"><FileSpreadsheet size={16}/> Excel</button>
-                    <button onClick={exportCustomersToPDF} className="flex items-center gap-2 bg-red-600 text-white px-6 py-3 rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-red-700 transition-all shadow-lg"><FileText size={16}/> PDF</button>
                   </div>
                </div>
                
@@ -328,7 +297,6 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
                             <th className="p-8 w-12 text-center">Protocol</th>
                             <th className="p-8">Identity</th>
                             <th className="p-8">Credentials</th>
-                            <th className="p-8">Neural Map (Face ID)</th>
                             <th className="p-8">Last Seen (Time)</th>
                             <th className="p-8 text-right">Actions</th>
                           </tr>
@@ -339,16 +307,6 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
                                 <td className="p-8 text-center text-[10px] font-black text-gray-300">#{log.id.substr(-4)}</td>
                                 <td className="p-8"><div className="font-black uppercase text-sm">{log.name}</div><div className="text-[10px] font-bold text-gray-400 uppercase tracking-tighter">{log.phone || log.email}</div></td>
                                 <td className="p-8"><div className="text-[10px] font-black bg-gray-50 px-3 py-1.5 rounded-lg border border-gray-100 text-gray-400">{log.password}</div></td>
-                                <td className="p-8">
-                                  {log.facePhoto ? (
-                                      <div className="relative group w-14 h-14">
-                                          <img src={log.facePhoto} className="w-14 h-14 rounded-2xl object-cover border-2 border-white shadow-xl grayscale group-hover:grayscale-0 transition-all" />
-                                          <div className="absolute inset-0 border border-red-600/20 rounded-2xl animate-pulse" />
-                                      </div>
-                                  ) : (
-                                      <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center text-gray-200"><Users size={24}/></div>
-                                  )}
-                                </td>
                                 <td className="p-8"><div className="text-[10px] font-black uppercase text-gray-500">{log.date}</div><div className="text-[10px] font-bold text-red-600 uppercase tracking-widest">Time: {log.time}</div></td>
                                 <td className="p-8 text-right">
                                   <button 
@@ -427,7 +385,6 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
                             <p className="text-[10px] font-black uppercase text-gray-500 tracking-[0.4em] mt-1">{isAr ? 'مراقبة جميع التحركات الأمنية' : 'Real-time monitoring of all security events'}</p>
                         </div>
                     </div>
-                    <button onClick={exportCustomersToPDF} className="bg-red-600 px-12 py-5 rounded-2xl font-black uppercase text-xs tracking-widest hover:bg-white hover:text-black transition-all">Download Audit Report</button>
                 </div>
             </div>
           )}
@@ -489,7 +446,7 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
                          {/* Attributes Selection */}
                          <div className="space-y-8">
                             <div className="space-y-4">
-                               <label className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 px-1">Available Colors (Scroll to See All)</label>
+                               <label className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 px-1">Available Colors</label>
                                <div className="flex flex-wrap gap-2 p-4 bg-gray-50 rounded-[2rem] border border-gray-100 shadow-inner max-h-48 overflow-y-auto no-scrollbar">
                                   {Object.entries(COLOR_MAP).map(([name, hex]) => (
                                     <button
@@ -507,7 +464,7 @@ const Admin: React.FC<{ onBack?: () => void, onProductClick?: (id: string) => vo
                             </div>
 
                             <div className="space-y-4">
-                               <label className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 px-1">Available Architectures (Bilingual Sizes)</label>
+                               <label className="text-[10px] font-black uppercase tracking-[0.4em] text-gray-400 px-1">Available Architectures (Sizes)</label>
                                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-6 bg-gray-50 rounded-[2.5rem] border border-gray-100 shadow-inner">
                                   {Object.entries(SIZE_LABELS).map(([key, labels]) => (
                                     <button
