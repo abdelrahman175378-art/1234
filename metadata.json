@@ -1,9 +1,5 @@
-
 {
-  "name": "AK Modern Fashion | Doha Elite Boutique",
-  "description": "High-luxury streetwear & fashion atelier based in Qatar. Integrated with Neural Fitting Rooms and Editorial Collections.",
-  "requestFramePermissions": [
-    "camera",
-    "microphone"
-  ]
+  "boutiqueName": "AK Modern Fashion | Doha Elite Boutique",
+  "location": "Doha, Qatar",
+  "version": "1.0.0"
 }
