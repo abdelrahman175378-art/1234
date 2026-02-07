@@ -13,6 +13,7 @@ import Wishlist from './Wishlist.tsx';
 import RecentlyViewed from './RecentlyViewed.tsx';
 import AIChatbot from './AIChatbot.tsx';
 import Auth from './Auth.tsx';
+import { Product } from './types.ts';
 
 const AppContent: React.FC = () => {
   const { user } = useApp();
@@ -34,10 +35,7 @@ const AppContent: React.FC = () => {
   };
 
   const renderPage = () => {
-    if (!user && currentPage !== 'admin') {
-      return <Auth onAdminAccess={() => setCurrentPage('admin')} />;
-    }
-
+    if (!user && currentPage !== 'admin') return <Auth onAdminAccess={() => setCurrentPage('admin')} />;
     switch (currentPage) {
       case 'home': return <Home setPage={setCurrentPage} onCategoryClick={(cat) => { setSelectedCategory(cat); setCurrentPage('shop'); }} onProductClick={navigateToProduct} />;
       case 'shop': return <Shop initialCategory={selectedCategory} onProductClick={navigateToProduct} onBack={() => setCurrentPage('home')} />;
@@ -55,14 +53,9 @@ const AppContent: React.FC = () => {
   };
 
   return (
-    <Layout 
-      currentPage={currentPage} 
-      setPage={setCurrentPage} 
-      onPolicyClick={(type) => { setSelectedPolicy(type); setCurrentPage('policy'); }}
-      hideNav={currentPage === 'admin' && !user}
-    >
+    <Layout currentPage={currentPage} setPage={setCurrentPage} onPolicyClick={(type) => { setSelectedPolicy(type); setCurrentPage('policy'); }} hideNav={currentPage === 'admin' && !user}>
       {renderPage()}
-      {user && <AIChatbot />}
+      {user && <AIChatbot onProductNavigate={navigateToProduct} />}
     </Layout>
   );
 };
