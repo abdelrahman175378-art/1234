@@ -21,6 +21,12 @@ const AppContent: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedPolicy, setSelectedPolicy] = useState<string | null>(null);
 
+  useEffect(() => {
+    if (!user && currentPage !== 'admin' && currentPage !== 'auth') {
+      setCurrentPage('auth');
+    }
+  }, [user, currentPage]);
+
   const navigateToProduct = (id: string) => {
     setSelectedProductId(id);
     setCurrentPage('product-details');
@@ -28,7 +34,6 @@ const AppContent: React.FC = () => {
   };
 
   const renderPage = () => {
-    // نظام الحماية: لو مفيش مستخدم، اعرض صفحة الدخول (إلا للأدمن)
     if (!user && currentPage !== 'admin') {
       return <Auth onAdminAccess={() => setCurrentPage('admin')} />;
     }
@@ -63,9 +68,5 @@ const AppContent: React.FC = () => {
 };
 
 export default function App() {
-  return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
-  );
+  return <AppProvider><AppContent /></AppProvider>;
 }
