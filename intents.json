@@ -1,0 +1,31 @@
+
+{
+  "greeting": [
+    "hello", "hi", "hey", "good morning", "is anyone there?",
+    "مرحبا", "هلا", "السلام عليكم", "صباح الخير", "في حد موجود؟"
+  ],
+  "pricing": [
+    "how much", "price of the hoodie", "cost", "what is the price",
+    "كم السعر", "بكم القطعة", "ايش الاسعار", "السعر لو سمحت"
+  ],
+  "sizes": [
+    "sizes available", "do you have large", "size chart", "is there size s",
+    "المقاسات", "عندكم مقاس لارج", "ايش المقاسات المتوفرة", "مقاس ميديوم"
+  ],
+  "offers": [
+    "any discount", "offers", "sale", "promo code",
+    "خصم", "عروض", "تنزيلات", "في كود خصم", "متى التنزيلات"
+  ],
+  "recommendations": [
+    "what is the best", "recommend something", "new collection", "trending",
+    "ايش الافضل", "اقترح علي شي", "المجموعة الجديدة", "ايش التريند الحين"
+  ],
+  "human": [
+    "speak to human", "real person", "agent", "call me", "customer service",
+    "ابي اكلم شخص", "خدمة العملاء", "حولني لموظف", "ابي اتصل بكم"
+  ],
+  "complaint": [
+    "bad quality", "late delivery", "problem with order", "complaint",
+    "مشكلة في الطلب", "تأخر التوصيل", "جودة سيئة", "شكوى"
+  ]
+}

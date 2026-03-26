@@ -1,0 +1,133 @@
+/* 
+  AK MODERN - GLOBAL ARCHIVE SYSTEM STYLES v1.0
+  UNIVERSAL MOBILE OPTIMIZATION & NEURAL INTERFACE PROTOCOL
+  ===========================================================
+*/
+
+/* استدعاء أساسيات التنسيق لضمان التوافق */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --app-height: 100%;
+  --elite-red: #DC2626;
+  --matrix-black: #000000;
+}
+
+/* الضوابط العالمية للجسم والهيكل */
+html, body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100vh;
+  /* منع التمرير العرضي المزعج الذي يخرب شكل الموقع على الموبايل */
+  overflow-x: hidden !important; 
+  /* تحسين جودة عرض الخطوط لتكون ناعمة وفخمة */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+/* تحسين تجربة اللمس على الجوال (إزالة الوميض الأزرق عند الضغط على الأزرار) */
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+/* حاوية الجذر لضمان عدم خروج أي عنصر عن حدود الشاشة */
+#root {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* دعم اللغة العربية بشكل احترافي مع خط Noto Sans Arabic */
+[dir="rtl"] {
+  font-family: 'Noto Sans Arabic', sans-serif;
+}
+
+/* تحسين شكل المدخلات (Inputs) في الـ iOS لمنع الـ Zoom التلقائي المزعج */
+input, select, textarea {
+  font-size: 16px !important; /* هذا السطر يمنع الآيفون من عمل زووم عند الكتابة */
+  appearance: none;
+}
+
+/* إخفاء شريط التمرير مع الحفاظ على وظيفته (للحفاظ على نظافة التصميم) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* تنسيق مخصص لعملية الـ Horizontal Scroll في شرائط التوصيات */
+.snap-inline {
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1rem;
+}
+.snap-item {
+  scroll-snap-align: start;
+}
+
+/* تأثير المسح الرقمي (Scan Line) المستخدم في وضع الزووم والأصالة */
+@keyframes scan-line {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(1000%); opacity: 0; }
+}
+.animate-scan-line {
+  animation: scan-line 4s linear infinite;
+}
+
+/* تحسين تحميل الصور لمنع القفزات في المحتوى */
+img {
+  content-visibility: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ضبط الهوامش الآمنة للهواتف الحديثة (Safe Area Insets) */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+/* استجابة النصوص الضخمة جداً للشاشات الصغيرة */
+@media (max-width: 640px) {
+  h1 {
+    letter-spacing: -0.02em !important;
+    word-break: break-word;
+  }
+  .elite-title {
+    font-size: clamp(2rem, 10vw, 4rem);
+  }
+}
+
+/* تنسيق أزرار التواصل العائمة لتكون واضحة وفخمة */
+.floating-contact-hub {
+  box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* تخصيص مؤشر التمرير (Scrollbar) في نسخة الكمبيوتر */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #f9f9f9;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #DC2626;
+  }
+}

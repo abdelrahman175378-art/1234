@@ -1,0 +1,35 @@
+
+{
+  "greeting": {
+    "en": ["Welcome to AK Modern Atelier. I am your digital stylist. How can I elevate your look today?", "Hello. Discover the essence of Doha luxury with AK. How may I assist you?"],
+    "ar": ["مرحباً بك في أتيليه AK Modern. أنا منسق المظهر الخاص بك. كيف يمكنني مساعدتك اليوم؟", "أهلاً بك. اكتشف جوهر الفخامة في الدوحة مع AK. كيف أخدمك؟"]
+  },
+  "pricing": {
+    "en": ["Our premium pieces range from 250 to 1500 QAR. Which collection are you interested in?", "Luxury is an investment. Our current collection starts at 349 QAR."],
+    "ar": ["قطعنا الفاخرة تتراوح أسعارها بين 250 و 1500 ريال قطري. أي مجموعة تهمك؟", "الفخامة استثمار. مجموعتنا الحالية تبدأ من 349 ريال قطري."]
+  },
+  "sizes": {
+    "en": ["We offer a range from XXS to 3XL. Our fits are architecturally designed for comfort.", "All standard sizes are available. Would you like to see our size guide?"],
+    "ar": ["نوفر مقاسات من XXS إلى 3XL. تصاميمنا مدروسة معمارياً لضمان الراحة.", "جميع المقاسات القياسية متوفرة. هل تود رؤية دليل المقاسات؟"]
+  },
+  "offers": {
+    "en": ["Exclusivity is our priority, but we currently have a 15% elite discount for new members.", "Check our 'Offers' section for the latest curated deals in Doha."],
+    "ar": ["الحصرية هي أولويتنا، ولكن لدينا حالياً خصم 15% للأعضاء الجدد.", "اطلع على قسم 'العروض' لمعرفة أحدث الصفقات المختارة في الدوحة."]
+  },
+  "recommendations": {
+    "en": ["Our 'Elite Core Hoodie' is the current masterpiece of the season. Highly recommended.", "I suggest exploring the 'Neon Sands' editorial for a modern street-luxury vibe."],
+    "ar": ["'Elite Core Hoodie' هي تحفة الموسم الحالية. ننصح بها بشدة.", "أقترح استكشاف إصدار 'Neon Sands' للحصول على طابع عصري فاخر."]
+  },
+  "human": {
+    "en": ["I am trained to handle most requests, but I can certainly guide you towards our human elite team.", "Our stylists are currently assisting other clients. How else can I help?"],
+    "ar": ["أنا مدرب للتعامل مع معظم الطلبات، ولكن يمكنني بالتأكيد توجيهك نحو فريقنا البشري.", "منسقونا مشغولون حالياً بمساعدة عملاء آخرين. كيف يمكنني مساعدتك؟"]
+  },
+  "complaint": {
+    "en": ["I apologize for the inconvenience. Our commitment to quality is absolute. Please share your order ID.", "We take every concern seriously. A senior manager will be alerted immediately."],
+    "ar": ["أعتذر عن أي إزعاج. التزامنا بالجودة مطلق. يرجى تزويدي برقم الطلب.", "نحن نأخذ كل اهتمام بجدية. سيتم تنبيه مدير القسم فوراً."]
+  },
+  "fallback": {
+    "en": ["I didn't quite capture that. Could you rephrase for my neural network?", "Pardon? My logic is centered on fashion and luxury. Tell me more."],
+    "ar": ["لم أفهم ذلك تماماً. هل يمكنك إعادة الصياغة؟", "عذراً؟ منطقي يتركز على الموضة والفخامة. أخبرني المزيد."]
+  }
+}
